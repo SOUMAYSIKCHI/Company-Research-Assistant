@@ -277,7 +277,7 @@ backend/
 
 ---
 
-## 📜 **Design Decisions : **
+## 📜 Design Decisions : 
 
 ### **1. Conversational Quality First**
 
