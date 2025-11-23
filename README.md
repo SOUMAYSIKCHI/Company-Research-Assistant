@@ -22,6 +22,18 @@ This application is designed with **high conversational quality**, **proactive a
 
 ---
 
+# 📄 **Documentation**
+
+## **PRD — Product Requirements Document** :
+
+https://drive.google.com/file/d/17LZm0odnt4ouAGqWfoYKSM-Mi5wVHO9V/view?usp=sharing
+
+## **Technical documentation** :
+
+https://drive.google.com/file/d/12YYwqG1PMnbMLTkldrKt9nryThJqRIP0/view?usp=sharing
+
+---
+
 ## 🧠 **Core Capabilities**
 
 ### **1. Multi-Source Research Pipeline**
@@ -152,12 +164,6 @@ Frontend routes include:
 * Persisted Chroma DB for RAG
 
 ---
-# 📄 **Documentation**
-
-## **PRD — Product Requirements Document** :
-
-https://drive.google.com/file/d/17LZm0odnt4ouAGqWfoYKSM-Mi5wVHO9V/view?usp=sharing
-
 
 ## 🔄 **End-to-End Flow**
 
