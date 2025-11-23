@@ -1,4 +1,4 @@
-# 📘 **README.md — AI Research Assistant**
+# 📘 **README.md — Company Research Assistant**
 
 ### *Enterprise-Grade Company Research & Account Plan Generation (Groq + LangChain + MCP)*
 
@@ -270,7 +270,7 @@ backend/
 
 ---
 
-## 📜 **Design Decisions (Required by Evaluation)**
+## 📜 **Design Decisions : **
 
 ### **1. Conversational Quality First**
 
@@ -382,13 +382,3 @@ Located in `models.py`:
 * In-memory conversation store
 * Persistent Chroma DB for RAG
 
----
-
-If you'd like, I can also generate:
-
-* 📊 Mermaid architecture diagrams
-* 📄 A4-formatted PDF documentation
-* 🎥 Demo script for judges
-* 🖼️ Illustrated diagrams for README
-
-Just tell me — I’ll deliver.
