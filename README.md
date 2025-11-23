@@ -204,7 +204,7 @@ User can export plan or get AI-generated review.
 
 ---
 
-## 🧪 **Hackathon Interaction Modes (Judge Scenarios)**
+## 🧪 ** User Interaction Modes : **
 
 ### ✔ Confused User
 
