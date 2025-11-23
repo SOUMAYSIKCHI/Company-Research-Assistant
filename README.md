@@ -1,12 +1,12 @@
 # 📘 **README.md — Company Research Assistant**
 
-### *Enterprise-Grade Company Research & Account Plan Generation (Groq + LangChain + MCP)*
+### *Enterprise-Grade Company Research & Account Plan Generation (Groq + LangChain + MCP + RAG + Web Scraping)*
 
 ---
 
 ## 🚀 **Overview**
 
-**AI Research Assistant** is an enterprise-focused, agentic system that conducts deep company research, synthesizes multi-source intelligence, detects conflicting information, and generates structured account plans.
+**Company(AI) Research Assistant** is an enterprise-focused, agentic system that conducts deep company research, synthesizes multi-source intelligence, detects conflicting information, and generates structured account plans.
 It is built for sales, strategy, GTM, and consulting workflows requiring **fast, accurate, and explainable** research.
 
 The platform combines:
