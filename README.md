@@ -258,14 +258,17 @@ http://localhost:8000/ui/research
 
 ```
 backend/
- ├── app.py                     # FastAPI routes + UI flow  :contentReference[oaicite:10]{index=10}
- ├── models.py                  # Pydantic data models      :contentReference[oaicite:11]{index=11}
+ ├── app.py                     # FastAPI routes + UI flow
+ ├── models.py                  # Pydantic data models
  ├── services/
- │     ├── llm_service.py       # Groq LLM calls            :contentReference[oaicite:12]{index=12}
- │     ├── rag_service.py       # RAG pipeline + Chroma     :contentReference[oaicite:13]{index=13}
- │     └── research_service.py  # Full research pipeline     :contentReference[oaicite:14]{index=14}
- ├── templates/                 # Jinja UI
- └── static/
+ │     ├── llm_service.py       # Groq LLM integration
+ │     ├── rag_service.py       # RAG pipeline (LangChain + Chroma)
+ │     └── research_service.py  # Full research + synthesis pipeline
+ ├── mcp_server/
+ │     └── company_research_mcp.py   # MCP tools for research, chat & feedback
+ ├── templates/                 # Frontend templates (Jinja2)
+ └── static/                    # CSS, JS, assets
+
 ```
 
 ---
