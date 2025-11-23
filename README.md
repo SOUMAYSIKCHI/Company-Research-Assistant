@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 **Overview**
+## 🚀 **Overview** :
 
 **Company(AI) Research Assistant** is an enterprise-focused, agentic system that conducts deep company research, synthesizes multi-source intelligence, detects conflicting information, and generates structured account plans.
 It is built for sales, strategy, GTM, and consulting workflows requiring **fast, accurate, and explainable** research.
@@ -22,7 +22,7 @@ This application is designed with **high conversational quality**, **proactive a
 
 ---
 
-# 📄 **Documentation**
+# 📄 **Documentation** :
 
 ## **PRD — Product Requirements Document** :
 
@@ -34,7 +34,7 @@ https://drive.google.com/file/d/12YYwqG1PMnbMLTkldrKt9nryThJqRIP0/view?usp=shari
 
 ---
 
-## 🧠 **Core Capabilities**
+## 🧠 **Core Capabilities** :
 
 ### **1. Multi-Source Research Pipeline**
 
@@ -107,9 +107,9 @@ Frontend routes include:
 
 ---
 
-## 🏛️ **Architecture Overview**
+## 🏛️ **Architecture Overview** :
 
-### **System Diagram**
+### **System Diagram** :
 
 ```
                        ┌──────────────────────────┐
@@ -142,9 +142,9 @@ Frontend routes include:
 
 ---
 
-## ⚙️ **Tech Stack**
+## ⚙️ **Tech Stack** :
 
-### **Backend**
+### **Backend** :
 
 * **FastAPI**
 * **Groq LLM** (Llama-3.1-8B Instant) 
@@ -152,20 +152,20 @@ Frontend routes include:
 * **MCP (Model Context Protocol)** custom tools for research, chat, and feedback
 * **Serper API Web Search**
 
-### **Frontend**
+### **Frontend** :
 
 * **Jinja2 templates**
 * **HTML/CSS/JS**
 * **Chart Rendering (SWOT Radar, Competitor Pie, KPI Bar)**
 
-### **Data**
+### **Data** :
 
 * In-memory conversation store (`_CONVERSATIONS`)
 * Persisted Chroma DB for RAG
 
 ---
 
-## 🔄 **End-to-End Flow**
+## 🔄 **End-to-End Flow** :
 
 ### **1. User Inputs Company Name**
 
@@ -236,7 +236,7 @@ Invalid inputs → safe fallback with guided suggestions.
 
 ---
 
-## 🚀 **Running the Project Locally**
+## 🚀 **Running the Project Locally** :
 
 ### **1. Install Dependencies**
 
@@ -266,7 +266,7 @@ http://localhost:8000/ui/research
 
 ---
 
-## 📁 **Project Structure**
+## 📁 **Project Structure** :
 
 ```
 backend/
@@ -287,27 +287,27 @@ backend/
 
 ## 📜 Design Decisions : 
 
-### **1. Conversational Quality First**
+### **1. Conversational Quality First** :
 
 * All responses are context-aware
 * Follow-up prompts embedded in model logic
 * No hallucinated charts — only derived chart data
 * Conflict awareness improves reliability
 
-### **2. Agentic Behaviour**
+### **2. Agentic Behaviour** :
 
 * Custom MCP tools let the agent act
 * Step logging shows transparency
 * Conflict resolution loop supports autonomy
 
-### **3. Technical Implementation**
+### **3. Technical Implementation** :
 
 * High-performance Groq inference
 * Modern LangChain RAG stack
 * Clean modular architecture
 * SSE streaming support for real-time research
 
-### **4. Adaptability**
+### **4. Adaptability** :
 
 * Handles confused users
 * Error-tolerant JSON parsing
@@ -315,7 +315,7 @@ backend/
 
 ---
 
-# 🎥 Demo Video
+# 🎥 Demo Video :
 A short end-to-end demonstration of the **Company (AI) Research Assistant**, showcasing the agentic research workflow, multi-source synthesis, UI interactions, and feedback generation.
 
 🔗 **Demo Link:** _Coming Soon_ / _Add Your Link Here_
@@ -328,23 +328,25 @@ Below are real UI screenshots from the **Company (AI) Research Assistant** showc
 the research workflow, agent interactions, results dashboard, feedback pages, and edit flow.
 ---
 
-🏠 Home Page
+##🏠 Home Page : 
+
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222527.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222540.png" width="85%" /> </p>
 
-📘 About Page
+##📘 About Page :
+
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222612.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222621.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222630.png" width="85%" /> </p>
 
-📝 Research Input Form
+##📝 Research Input Form :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222703.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222709.png" width="85%" /> </p>
 
-🧠 Research Workspace
+##🧠 Research Workspace :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222755.png" width="85%" /> </p>
 
-📊 Feedback Analysis Dashboard
+##📊 Feedback Analysis Dashboard :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222829.png" width="85%" /> </p>
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222808.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222817.png" width="85%" /> </p>
