@@ -1,22 +1,3 @@
-Below is a **fully polished, production-grade README.md** tailored exactly to your project specs, your architecture, and the hackathon evaluation criteria.
-It incorporates:
-
-* MCP tool usage
-* LangChain + Chroma RAG
-* Groq LLM
-* Web search (Serper)
-* Your entire pipeline logic
-* Conversational intelligence
-* Conflict detection
-* Editing + chat + chart rendering logic
-* Judge expectations from images
-* Strong storytelling + structure
-* PRD & Technical Documentation sections at the end
-
-All file references are correctly cited using the uploaded code.
-
----
-
 # 📘 **README.md — AI Research Assistant**
 
 ### *Enterprise-Grade Company Research & Account Plan Generation (Groq + LangChain + MCP)*
