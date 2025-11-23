@@ -318,7 +318,7 @@ backend/
 # 🎥 Demo Video :
 A short end-to-end demonstration of the **Company (AI) Research Assistant**, showcasing the agentic research workflow, multi-source synthesis, UI interactions, and feedback generation.
 
-🔗 **Demo Link:** _Coming Soon_ / _Add Your Link Here_
+🔗 **Demo Link:** _Coming Soon 
 
 ---
 
@@ -328,25 +328,23 @@ Below are real UI screenshots from the **Company (AI) Research Assistant** showc
 the research workflow, agent interactions, results dashboard, feedback pages, and edit flow.
 ---
 
-##🏠 Home Page : 
-
+# 🏠 Home Page : 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222527.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222540.png" width="85%" /> </p>
 
-##📘 About Page :
-
+# 📘 About Page :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222612.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222621.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222630.png" width="85%" /> </p>
 
-##📝 Research Input Form :
+# 📝 Research Input Form :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222703.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222709.png" width="85%" /> </p>
 
-##🧠 Research Workspace :
+# 🧠 Research Workspace :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222755.png" width="85%" /> </p>
 
-##📊 Feedback Analysis Dashboard :
+# 📊 Feedback Analysis Dashboard :
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222829.png" width="85%" /> </p>
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222808.png" width="85%" /> </p> 
 <p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222817.png" width="85%" /> </p>
