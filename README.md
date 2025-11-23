@@ -204,7 +204,7 @@ User can export plan or get AI-generated review.
 
 ---
 
-## 🧪 ** User Interaction Modes : **
+## 🧪 User Interaction Modes : 
 
 ### ✔ Confused User
 
