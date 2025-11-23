@@ -335,15 +335,15 @@ All images are located in:
 ## 🖥️ **Dashboard & Research Flow** : 
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222527.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222527.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222540.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222540.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222612.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222612.png" width="85%" />
 </p>
 
 ---
@@ -351,15 +351,15 @@ All images are located in:
 ## 🔍 **Research Results – Account Plan View**
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222621.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222621.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222630.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222630.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222703.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222703.png" width="85%" />
 </p>
 
 ---
@@ -367,11 +367,11 @@ All images are located in:
 ## 💬 **Chat Interaction & Agentic Updates**
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222709.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222709.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222755.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222755.png" width="85%" />
 </p>
 
 ---
@@ -379,7 +379,7 @@ All images are located in:
 ## 📊 **Feedback, Metrics & Charts**
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222808.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222808.png" width="85%" />
 </p>
 
 ---
@@ -387,11 +387,11 @@ All images are located in:
 ## ✏️ **Section Editing & Updates**
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222817.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222817.png" width="85%" />
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/Screenshot 2025-11-23 222829.png" width="85%" />
+  <img src="assets/Screenshot 2025-11-23 222829.png" width="85%" />
 </p>
 
 
