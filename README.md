@@ -326,73 +326,27 @@ A short end-to-end demonstration of the **Company (AI) Research Assistant**, sho
 
 Below are real UI screenshots from the **Company (AI) Research Assistant** showcasing  
 the research workflow, agent interactions, results dashboard, feedback pages, and edit flow.
-
-All images are located in:  
-`/assets/screenshots/`
-
 ---
 
-## 🖥️ **Dashboard & Research Flow** : 
+🏠 Home Page
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222527.png" width="85%" /> </p> 
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222540.png" width="85%" /> </p>
 
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222527.png" width="85%" />
-</p>
+📘 About Page
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222612.png" width="85%" /> </p> 
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222621.png" width="85%" /> </p> 
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222630.png" width="85%" /> </p>
 
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222540.png" width="85%" />
-</p>
+📝 Research Input Form
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222703.png" width="85%" /> </p> 
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222709.png" width="85%" /> </p>
 
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222612.png" width="85%" />
-</p>
+🧠 Research Workspace
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222755.png" width="85%" /> </p>
 
----
-
-## 🔍 **Research Results – Account Plan View**
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222621.png" width="85%" />
-</p>
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222630.png" width="85%" />
-</p>
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222703.png" width="85%" />
-</p>
-
----
-
-## 💬 **Chat Interaction & Agentic Updates**
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222709.png" width="85%" />
-</p>
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222755.png" width="85%" />
-</p>
-
----
-
-## 📊 **Feedback, Metrics & Charts**
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222808.png" width="85%" />
-</p>
-
----
-
-## ✏️ **Section Editing & Updates**
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222817.png" width="85%" />
-</p>
-
-<p align="center">
-  <img src="assets/Screenshot 2025-11-23 222829.png" width="85%" />
-</p>
-
+📊 Feedback Analysis Dashboard
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222829.png" width="85%" /> </p>
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222808.png" width="85%" /> </p> 
+<p align="center"> <img src="https://github.com/SOUMAYSIKCHI/Company-Research-Assistant/blob/main/assests/Screenshot%202025-11-23%20222817.png" width="85%" /> </p>
 
 ---
