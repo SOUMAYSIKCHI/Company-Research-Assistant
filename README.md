@@ -152,6 +152,10 @@ Frontend routes include:
 * Persisted Chroma DB for RAG
 
 ---
+# 📄 **Documentation**
+
+## **PRD — Product Requirements Document** : https://drive.google.com/file/d/17LZm0odnt4ouAGqWfoYKSM-Mi5wVHO9V/view?usp=sharing
+
 
 ## 🔄 **End-to-End Flow**
 
@@ -303,85 +307,4 @@ backend/
 
 ---
 
-# 📄 **Documentation**
-
-Below is a summary reference for developers.
-
----
-
-## **PRD — Product Requirements Document**
-
-### **Purpose**
-
-Enable users to generate enterprise-grade company research and account plans conversationally.
-
-### **Key Requirements**
-
-* Multi-source research (RAG + Web + LLM)
-* Conflict detection
-* Structured output (JSON)
-* Conversational interface
-* Section editing
-* Chart data generation
-* Feedback review
-* Downloadable reports
-* Transparent research pipeline
-
-### **Success Metrics**
-
-* Accuracy of synthesized insights
-* Minimal hallucinations
-* High conversational quality
-* Fast response times (Groq advantage)
-* Stability across diverse user types
-
----
-
-## **Technical Documentation**
-
-### **1. Architecture Layers**
-
-* UI: FastAPI + Jinja
-* Backend: Python micro-services
-* Intelligence: Groq LLM
-* Context: LangChain + Chroma RAG
-* Tools: MCP for agentic execution
-
-### **2. Data Models**
-
-Located in `models.py`:
-
-* `AccountPlan`
-* `CompanySection`
-* `ResearchMetadata`
-* `ResearchStep`
-* `StartResearchRequest`
-
-
-### **3. RAG Pipeline**
-
-* PDF ingestion
-* Splitting
-* Chroma vector store
-* Semantic search
-
-
-### **4. LLM Pipeline**
-
-* System prompt (enterprise research)
-* Consolidated prompt with RAG + web data
-* Clean JSON parsing
-
-
-### **5. Agent Tools (MCP)**
-
-* `start_company_research`
-* `chat_with_research_agent`
-* `generate_research_feedback`
-
-
-### **6. Storage**
-
-* In-memory conversation store
-* Persistent Chroma DB for RAG
 
