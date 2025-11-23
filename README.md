@@ -322,7 +322,7 @@ A short end-to-end demonstration of the **Company (AI) Research Assistant**, sho
 
 ---
 
-# 📸 UI Preview & Application Screenshots
+# 📸 UI Preview & Application Screenshots :
 
 Below are real UI screenshots from the **Company (AI) Research Assistant** showcasing  
 the research workflow, agent interactions, results dashboard, feedback pages, and edit flow.
