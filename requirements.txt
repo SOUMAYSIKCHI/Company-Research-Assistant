@@ -1,0 +1,17 @@
+fastapi>=0.95
+uvicorn[standard]>=0.20
+python-dotenv>=1.0
+pydantic>=2.0
+groq>=0.6.0
+langchain-community>=0.4.0
+langchain-text-splitters>=0.3.0
+chromadb>=0.5
+sentence-transformers>=2.2.2
+requests>=2.28
+pypdf>=3.0
+mcp>=0.1
+
+# Notes:
+# - Uses Groq (llama-3.x) via the `groq` client.
+# - Web search uses the Serper API via HTTP (no ddgs / DuckDuckGo).
+# - If you run local embedding/model inference you may need `torch` installed.

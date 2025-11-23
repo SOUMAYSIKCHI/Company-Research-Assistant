@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Help Center - AI Research Assistant</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content.active {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2563eb",
+                        "primary-light": "#60a5fa",
+                        "primary-dark": "#1e40af",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- Header -->
+        <header class="flex items-center justify-between px-6 sm:px-10 py-4 border-b border-gray-200 bg-white sticky top-0 z-50">
+            <div class="flex items-center gap-3 text-gray-900">
+                <div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold">AI Research Assistant</h2>
+            </div>
+            <div class="flex items-center gap-6">
+                <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors" href="/">Home</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors" href="/about">About</a>
+                <a class="text-sm font-medium text-primary" href="#help">Help</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex justify-center px-4 sm:px-10 py-16">
+            <div class="flex w-full max-w-6xl flex-col gap-16">
+                
+                <!-- Hero Section -->
+                <section class="text-center space-y-6 fade-in">
+                    <div class="inline-block">
+                        <span class="text-xs uppercase tracking-wider text-primary font-semibold px-4 py-2 rounded-full bg-blue-50 border border-blue-100">
+                            Help Center
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        How Can We <span class="text-primary">Help You?</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                        Everything you need to know about using AI Research Assistant to generate intelligent company reports.
+                    </p>
+                    
+
+                </section>
+
+                <!-- Quick Start Guide -->
+                <section class="space-y-8">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">How to Get Started</h2>
+                        <p class="text-lg text-gray-600">Three simple steps to your first research report</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 text-center">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-primary text-white mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl">search</span>
+                            </div>
+                            <div class="h-8 w-8 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto mb-3 text-sm">1</div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Enter Company Name</h3>
+                            <p class="text-gray-600">Type the company name in the search bar on the homepage. Our AI will recognize it instantly.</p>
+                        </div>
+                        
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 text-center">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-purple-500 text-white mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl">sync</span>
+                            </div>
+                            <div class="h-8 w-8 rounded-full bg-purple-500 text-white font-bold flex items-center justify-center mx-auto mb-3 text-sm">2</div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Gathers Intelligence</h3>
+                            <p class="text-gray-600">Watch as the AI collects data from stock markets, press releases, news sources, and financial reports.</p>
+                        </div>
+                        
+                        <div class="p-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-100 text-center">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-emerald-500 text-white mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl">download</span>
+                            </div>
+                            <div class="h-8 w-8 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center mx-auto mb-3 text-sm">3</div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Download or Refine</h3>
+                            <p class="text-gray-600">Get your complete account plan instantly, or use chat to refine specific sections.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Sources -->
+                <section class="bg-gray-50 rounded-3xl p-8 md:p-12">
+                    <div class="text-center mb-10">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">Data Sources the Agent Uses</h2>
+                        <p class="text-lg text-gray-600">Transparency matters—here's where we get our intelligence</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">show_chart</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Live Stock Market Metrics</h3>
+                                <p class="text-sm text-gray-600">Real-time data via MCP servers with sub-second latency</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">campaign</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Press Releases</h3>
+                                <p class="text-sm text-gray-600">Official corporate announcements and strategic updates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">newspaper</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Tier-1 News Publications</h3>
+                                <p class="text-sm text-gray-600">Verified articles from premium news sources</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">analytics</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Analyst Reports</h3>
+                                <p class="text-sm text-gray-600">Professional market analysis and industry insights</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">description</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Public Financial Documents</h3>
+                                <p class="text-sm text-gray-600">SEC filings, earnings reports, and financial statements</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-2xl text-primary">groups</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Competitor Market Share</h3>
+                                <p class="text-sm text-gray-600">Competitive landscape and market positioning data</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- What AI Generates -->
+                <section class="space-y-8">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">Outputs You Can Expect</h2>
+                        <p class="text-lg text-gray-600">Comprehensive intelligence, instantly formatted</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Company overview & business model</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Financial KPIs (revenue, YoY, employees)</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Competitive landscape charts</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">SWOT analysis</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Opportunities & risks assessment</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Market intelligence insights</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">30-60-90 day account plan</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200">
+                            <span class="text-primary text-2xl">✓</span>
+                            <span class="font-medium text-gray-900">Executive summary</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relevancy Engine -->
+                <section class="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 md:p-12 text-white">
+                    <div class="text-center mb-10">
+                        <h2 class="text-4xl font-bold mb-3">How Our Relevancy Engine Works</h2>
+                        <p class="text-lg text-blue-100">The secret behind actionable intelligence</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">filter_alt</span>
+                            <h3 class="text-lg font-semibold mb-2">Filters Noise</h3>
+                            <p class="text-sm text-blue-100">Removes irrelevant data points, keeping only strategic insights</p>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">star</span>
+                            <h3 class="text-lg font-semibold mb-2">Highlights What Matters</h3>
+                            <p class="text-sm text-blue-100">Surfaces insights that directly impact your strategy and GTM plans</p>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">error</span>
+                            <h3 class="text-lg font-semibold mb-2">Detects Conflicts</h3>
+                            <p class="text-sm text-blue-100">Identifies conflicting information across multiple sources</p>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">notifications</span>
+                            <h3 class="text-lg font-semibold mb-2">Alerts You</h3>
+                            <p class="text-sm text-blue-100">"Should I dig deeper?" prompts when more investigation is needed</p>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">sort</span>
+                            <h3 class="text-lg font-semibold mb-2">Prioritizes Insights</h3>
+                            <p class="text-sm text-blue-100">Ranks findings by business impact and strategic relevance</p>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                            <span class="material-symbols-outlined text-4xl mb-3">speed</span>
+                            <h3 class="text-lg font-semibold mb-2">Real-Time Scoring</h3>
+                            <p class="text-sm text-blue-100">Continuously evaluates data quality and relevance as it arrives</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interactive Editing -->
+                <section class="space-y-8">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">Using Chat to Update the Plan</h2>
+                        <p class="text-lg text-gray-600">Refine your research with natural language commands</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="p-6 bg-gradient-to-br from-purple-50 to-white rounded-2xl border-2 border-purple-100">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">You Can Instruct the AI To:</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary mt-1">edit</span>
+                                        <span class="text-gray-700">Rewrite sections of the plan</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary mt-1">add_circle</span>
+                                        <span class="text-gray-700">Add new research and insights</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary mt-1">delete</span>
+                                        <span class="text-gray-700">Remove outdated information</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary mt-1">palette</span>
+                                        <span class="text-gray-700">Change tone and writing style</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-primary mt-1">bar_chart</span>
+                                        <span class="text-gray-700">Regenerate charts and visualizations</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Example Prompts:</h3>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Summarize competitors in 3 bullets."</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Update the SWOT with new risks."</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Expand opportunities for APAC region."</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Make the executive summary more concise."</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Add a competitive pricing analysis section."</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                                <p class="text-sm font-mono text-gray-700">"Show me the revenue trend chart for last 5 years."</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="space-y-6">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
+                        <p class="text-lg text-gray-600">Quick answers to common questions</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="border-2 border-gray-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleAccordion(this)" class="w-full p-6 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors">
+                                <span class="text-lg font-semibold text-gray-900 text-left">How often is MCP stock data refreshed?</span>
+                                <span class="material-symbols-outlined text-gray-400 transition-transform">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-gray-50">
+                                <div class="p-6 pt-0">
+                                    <p class="text-gray-700">MCP server connections provide real-time market data with typical latency of 148ms. Stock prices, volume, and sentiment indicators update continuously during market hours. Historical data is also available for trend analysis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-2 border-gray-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleAccordion(this)" class="w-full p-6 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors">
+                                <span class="text-lg font-semibold text-gray-900 text-left">Can I export reports to PDF?</span>
+                                <span class="material-symbols-outlined text-gray-400 transition-transform">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-gray-50">
+                                <div class="p-6 pt-0">
+                                    <p class="text-gray-700">Yes! All reports can be exported to PDF, Word, or PowerPoint formats. The formatting is optimized for presentations and client-facing documents, with professional charts and layouts preserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-2 border-gray-200 rounded-xl overflow-hidden">
+                            <button onclick="toggleAccordion(this)" class="w-full p-6 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors">
+                                <span class="text-lg font-semibold text-gray-900 text-left">Can the AI generate multiple variations?</span>
+                                <span class="material-symbols-outlined text-gray-400 transition-transform">expand_more</span>
+                            </button>
+                            <div class="accordion-content bg-gray-50">
+                                <div class="p-6 pt-0">
+                                    <p class="text-gray-700">Absolutely! You can ask the AI to generate different versions of the same report—such as an executive summary version, a detailed technical version, or versions focused on specific aspects like competitive analysis or financial performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section class="bg-amber-50 rounded-3xl p-8 md:p-12 border-2 border-amber-100">
+                    <div class="text-center mb-10">
+                        <div class="flex items-center justify-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-4xl text-amber-600">build</span>
+                            <h2 class="text-4xl font-bold text-gray-900">Troubleshooting</h2>
+                        </div>
+                        <p class="text-lg text-gray-600">Common issues and how to resolve them</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 rounded-xl border-2 border-amber-200">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-2xl text-amber-600 mt-1">error</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Report not generating</h3>
+                                    <p class="text-gray-700 mb-2">Check company name spelling or try an alternative variant (e.g., "Apple Inc." vs "Apple"). Make sure you're entering a recognized company name.</p>
+                                    <p class="text-sm text-gray-600">💡 Tip: Try using the official corporate name or stock ticker symbol.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border-2 border-amber-200">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-2xl text-amber-600 mt-1">bar_chart</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Charts not appearing</h3>
+                                    <p class="text-gray-700 mb-2">Ensure the company has publicly available financial data. Some private companies may have limited chart data available.</p>
+                                    <p class="text-sm text-gray-600">💡 Tip: Try regenerating the report or refresh your browser.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border-2 border-amber-200">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-2xl text-amber-600 mt-1">info</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Missing data sections</h3>
+                                    <p class="text-gray-700 mb-2">The AI may not have found reliable sources for certain data points. This is common for private companies or companies with limited public information.</p>
+                                    <p class="text-sm text-gray-600">💡 Tip: Use the chat to request specific information or alternative sources.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border-2 border-amber-200">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-2xl text-amber-600 mt-1">schedule</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Slow loading times</h3>
+                                    <p class="text-gray-700 mb-2">Real-time stock and news data syncing can take 30-60 seconds. Large companies with extensive data may take longer to process.</p>
+                                    <p class="text-sm text-gray-600">💡 Tip: Wait for the "Intelligence gathering complete" message before interacting.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border-2 border-amber-200">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-2xl text-amber-600 mt-1">warning</span>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-2">"Conflicting information" alert</h3>
+                                    <p class="text-gray-700 mb-2">The AI detected discrepancies between sources. Review the flagged sections and use the chat to investigate further or request source verification.</p>
+                                    <p class="text-sm text-gray-600">💡 Tip: Ask "Show me the sources for this data" to see where information came from.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Glossary Section -->
+                <section class="space-y-6">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-3">Feature Glossary</h2>
+                        <p class="text-lg text-gray-600">Understanding platform-specific terminology</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-6 bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-blue-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">MCP Servers</h3>
+                            <p class="text-gray-600">Our real-time market data endpoints that provide live stock information with sub-second latency.</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-purple-50 to-white rounded-xl border-2 border-purple-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Relevancy Score</h3>
+                            <p class="text-gray-600">A metric (0-100) indicating how strategically important an insight is to your business objectives.</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-emerald-50 to-white rounded-xl border-2 border-emerald-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Insight Pack</h3>
+                            <p class="text-gray-600">An auto-generated summary bundle containing key findings from all data sources.</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-amber-50 to-white rounded-xl border-2 border-amber-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Account Plan Generator</h3>
+                            <p class="text-gray-600">The core AI engine that produces structured business strategy outputs from raw intelligence.</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-pink-50 to-white rounded-xl border-2 border-pink-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Semantic Filter</h3>
+                            <p class="text-gray-600">AI-powered layer that removes noise and irrelevant information from research results.</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-indigo-50 to-white rounded-xl border-2 border-indigo-100">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">GTM Intelligence</h3>
+                            <p class="text-gray-600">Go-to-Market focused insights that help sales and partnership teams make strategic decisions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact & Support Section -->
+                <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white">
+                    <div class="text-center mb-10">
+                        <h2 class="text-4xl font-bold mb-3">Contact & Support</h2>
+                        <p class="text-lg text-gray-300">We're here to help you succeed</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-center hover:bg-white/15 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-5xl mb-4">support_agent</span>
+                            <h3 class="text-lg font-semibold mb-2">Contact Support</h3>
+                            <p class="text-sm text-gray-300 mb-3">Get help from our team</p>
+                            <a href="mailto:228r1a0557@gmail.com" class="text-blue-300 hover:text-blue-200 text-sm">228r1a0557@gmail.com</a>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-center hover:bg-white/15 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-5xl mb-4">bug_report</span>
+                            <h3 class="text-lg font-semibold mb-2">Report an Issue</h3>
+                            <p class="text-sm text-gray-300 mb-3">Found a bug? Let us know</p>
+                            <a href="mailto:228r1a0557@gmail.com?subject=Issue Report" class="text-blue-300 hover:text-blue-200 text-sm">Report Issue →</a>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-center hover:bg-white/15 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-5xl mb-4">lightbulb</span>
+                            <h3 class="text-lg font-semibold mb-2">Feature Request</h3>
+                            <p class="text-sm text-gray-300 mb-3">Suggest improvements</p>
+                            <a href="mailto:228r1a0557@gmail.com?subject=Feature Request" class="text-blue-300 hover:text-blue-200 text-sm">Submit Idea →</a>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-center hover:bg-white/15 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-5xl mb-4">code</span>
+                            <h3 class="text-lg font-semibold mb-2">Documentation</h3>
+                            <p class="text-sm text-gray-300 mb-3">View on GitHub</p>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 text-sm">View Docs →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Links -->
+                <section class="text-center space-y-6 py-8">
+                    <h3 class="text-2xl font-semibold text-gray-900">Still need help?</h3>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="/" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-all">
+                            Back to Home
+                        </a>
+                        <a href="/about" class="px-6 py-3 bg-white text-primary border-2 border-primary rounded-lg font-medium hover:bg-blue-50 transition-all">
+                            About Us
+                        </a>
+                        <a href="#" class="px-6 py-3 bg-white text-gray-700 border-2 border-gray-200 rounded-lg font-medium hover:bg-gray-50 transition-all">
+                            Watch Tutorial Video
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-200 bg-gray-50 mt-20">
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 py-12">
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900">AI Research Assistant</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-md">
+                        Transforming company research into actionable intelligence with AI-powered multi-source aggregation and synthesis.
+                    </p>
+                    <p class="text-sm text-gray-600 pt-4">© 2025 AI Research Assistant. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.material-symbols-outlined');
+            
+            // Close all other accordions
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.material-symbols-outlined').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current accordion
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html> 

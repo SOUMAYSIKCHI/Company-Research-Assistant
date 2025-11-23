@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AI Research Assistant Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+        
+        .data-flow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .data-flow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+            animation: slideRight 3s ease-in-out infinite;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2563eb",
+                        "primary-light": "#60a5fa",
+                        "primary-dark": "#1e40af",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- Header -->
+        <header class="flex items-center justify-between px-6 sm:px-10 py-4 border-b border-gray-200 bg-white">
+            <div class="flex items-center gap-3 text-gray-900">
+                <div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold">AI Research Assistant</h2>
+            </div>
+            <div class="hidden sm:flex items-center gap-6">
+                <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors" href="{{ url_for('about') }}">About</a>
+                <a class="text-sm font-medium text-gray-600 hover:text-primary transition-colors" href="{{ url_for('help') }}">Help</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex justify-center px-4 sm:px-10 py-16">
+            <div class="flex w-full max-w-6xl flex-col gap-16">
+                
+                <!-- Hero Section -->
+                <section class="text-center space-y-8 fade-in">
+                    <div class="inline-block">
+                        <span class="text-xs uppercase tracking-wider text-primary font-semibold px-4 py-2 rounded-full bg-blue-50 border border-blue-100">
+                            Agentic AI • Real-Time Data • Smart Analysis
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight max-w-4xl mx-auto">
+                        Enterprise company intelligence powered by <span class="text-primary">relevancy</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                        Our agentic AI pulls live stock data via MCP servers, press releases, and tier-1 news articles—intelligently filtered to surface only what matters for your GTM strategy.
+                    </p>
+                    
+                    <!-- Status Badges -->
+                    <div class="flex flex-wrap gap-3 items-center justify-center pt-4">
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 border border-emerald-200">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500 pulse-animation"></span>
+                            <span class="text-sm font-medium text-emerald-700">Live Market Data</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200">
+                            <span class="h-2 w-2 rounded-full bg-blue-500 pulse-animation"></span>
+                            <span class="text-sm font-medium text-blue-700">Real-Time News</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-50 border border-purple-200">
+                            <span class="h-2 w-2 rounded-full bg-purple-500 pulse-animation"></span>
+                            <span class="text-sm font-medium text-purple-700">MCP Connected • 148ms</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Start Section -->
+                <section id="quickstart" class="max-w-3xl mx-auto w-full space-y-4">
+                    <h2 class="text-2xl font-semibold text-gray-900 text-center">Start Your Research</h2>
+                    <p class="text-gray-600 text-center">Enter a company name to generate comprehensive intelligence</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+                            <input 
+                                id="companyInput"
+                                class="w-full h-14 rounded-lg border-2 border-gray-200 bg-white pl-12 pr-4 text-base placeholder:text-gray-400 focus:border-primary focus:outline-none transition-all" 
+                                placeholder="e.g., 'Innovate Inc.'" 
+                                type="text"
+                            />
+                        </div>
+                        <button onclick="handleGenerate()" class="flex h-14 w-full sm:w-auto min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-6 text-base font-semibold text-white hover:bg-primary-dark transition-all">
+                            <span class="material-symbols-outlined">auto_awesome</span>
+                            <span>Generate Report</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Intelligence Flow -->
+                <section class="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200 data-flow">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-semibold text-gray-900 mb-3">Agentic Intelligence Flow</h2>
+                        <p class="text-gray-600">Six-stage relevancy-first data pipeline</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">1</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">Live Stock Market Data</p>
+                                <p class="text-sm text-gray-600">Real-time financial metrics and market sentiment analysis</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">2</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">Press Releases</p>
+                                <p class="text-sm text-gray-600">Official announcements filtered for strategic relevance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">3</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">News Intelligence</p>
+                                <p class="text-sm text-gray-600">Semantic parsing from tier-1 publications by impact</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">4</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">Competitor Analysis</p>
+                                <p class="text-sm text-gray-600">Comprehensive positioning and competitive intelligence</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">5</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">SWOT + Opportunities</p>
+                                <p class="text-sm text-gray-600">AI-powered risk assessment and growth identification</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-primary transition-all">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white flex-shrink-0 font-semibold">6</div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-1">30-60-90 Day Plan</p>
+                                <p class="text-sm text-gray-600">Actionable strategy roadmap with milestones and KPIs</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Why Relevancy Matters Section -->
+                <section class="space-y-6">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-semibold text-gray-900 mb-3">Why Relevancy Matters</h2>
+                        <p class="text-gray-600">Intelligence that moves the needle, not just data dumps</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 hover:border-primary hover:shadow-xl transition-all group">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-primary text-white mb-4 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-3xl">target</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Relevancy-First Intelligence</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Filter out noise, surface only actionable findings. Every insight is ranked by strategic impact on your GTM and account objectives.</p>
+                        </div>
+                        
+                        <div class="p-8 rounded-xl bg-gradient-to-br from-amber-50 to-white border-2 border-amber-100 hover:border-amber-400 hover:shadow-xl transition-all group">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-amber-500 text-white mb-4 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-3xl">warning</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Conflict-Aware Research Updates</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">"Finding conflicting details about revenue projections — should I investigate further?" Our AI flags discrepancies and validates sources.</p>
+                        </div>
+                        
+                        <div class="p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border-2 border-purple-100 hover:border-purple-400 hover:shadow-xl transition-all group">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-purple-500 text-white mb-4 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-3xl">sort</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Semantic Prioritization</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Rank insights by impact on GTM and account strategy. Machine learning models prioritize what accelerates deals and partnerships.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- What Data We Pull Section -->
+                <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-semibold mb-3">What Data We Pull</h2>
+                        <p class="text-gray-300">Comprehensive intelligence from multiple premium sources</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">📈</div>
+                            <h3 class="text-lg font-semibold mb-2">Live Market Data Engine</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• MCP server integration</li>
+                                <li>• Sub-second updates</li>
+                                <li>• Real-time price movements</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">📰</div>
+                            <h3 class="text-lg font-semibold mb-2">Press Release Decoder</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• Filters strategic announcements</li>
+                                <li>• Official company sources</li>
+                                <li>• Relevancy scoring</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">🧠</div>
+                            <h3 class="text-lg font-semibold mb-2">News Intelligence Layer</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• Tier-1 outlets only</li>
+                                <li>• Fact-checked + summarized</li>
+                                <li>• Impact analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">📊</div>
+                            <h3 class="text-lg font-semibold mb-2">Financial KPIs Extractor</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• Revenue, YoY, margins</li>
+                                <li>• Employee counts</li>
+                                <li>• Key financial ratios</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">🆚</div>
+                            <h3 class="text-lg font-semibold mb-2">Competitor Scanner</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• Competitive benchmarks</li>
+                                <li>• Market share analysis</li>
+                                <li>• Positioning insights</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all">
+                            <div class="text-4xl mb-3">🎯</div>
+                            <h3 class="text-lg font-semibold mb-2">GTM Strategy Signals</h3>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li>• Partnership opportunities</li>
+                                <li>• Decision-maker intel</li>
+                                <li>• Timing indicators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Chat Agent Section -->
+                <section class="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+                    <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/20 backdrop-blur-sm">
+                                <span class="material-symbols-outlined text-4xl">chat</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-semibold">Your AI Research Companion</h2>
+                                <p class="text-blue-100">Natural language intelligence at your fingertips</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                            <div class="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                                <span class="material-symbols-outlined text-3xl mb-2">forum</span>
+                                <h4 class="font-semibold mb-1">Ask Questions in Natural Language</h4>
+                                <p class="text-sm text-blue-100">No complex queries needed—just ask like you're talking to an analyst</p>
+                            </div>
+                            
+                            <div class="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                                <span class="material-symbols-outlined text-3xl mb-2">insights</span>
+                                <h4 class="font-semibold mb-1">Get Instant Insights & Charts</h4>
+                                <p class="text-sm text-blue-100">Visualize data with dashboards, graphs, and interactive reports on demand</p>
+                            </div>
+                            
+                            <div class="p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                                <span class="material-symbols-outlined text-3xl mb-2">edit_note</span>
+                                <h4 class="font-semibold mb-1">Update Plans Interactively</h4>
+                                <p class="text-sm text-blue-100">Refine sections, add context, or drill deeper into any aspect of your account plan</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI-Generated Account Plans Section -->
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-8 rounded-xl border-2 border-gray-200 hover:border-primary hover:shadow-lg transition-all bg-white group">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">10× Faster Research</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Complete account intelligence in minutes, not hours. Automated data collection and synthesis at enterprise scale.</p>
+                    </div>
+                    
+                    <div class="p-8 rounded-xl border-2 border-gray-200 hover:border-primary hover:shadow-lg transition-all bg-white group">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">link</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Multi-Source Intelligence</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Unified insights from market data, press releases, news, and financial reports—all cross-verified and contextualized.</p>
+                    </div>
+                    
+                    <div class="p-8 rounded-xl border-2 border-gray-200 hover:border-primary hover:shadow-lg transition-all bg-white group">
+                        <div class="flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">description</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">AI-Generated Account Plans</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">Strategic roadmaps with SWOT analysis, competitor positioning, and actionable 30-60-90 day execution plans.</p>
+                    </div>
+                </section>
+
+                <!-- Stats Section -->
+                <section class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="text-center p-8 rounded-xl border border-gray-200 bg-white">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-50 text-primary mx-auto mb-3">
+                            <span class="material-symbols-outlined text-2xl">bar_chart</span>
+                        </div>
+                        <p class="text-4xl font-bold text-gray-900">1,204</p>
+                        <p class="text-sm font-medium text-gray-600 mt-1">Total Sessions</p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-xl border border-gray-200 bg-white">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-50 text-primary mx-auto mb-3">
+                            <span class="material-symbols-outlined text-2xl">schedule</span>
+                        </div>
+                        <p class="text-4xl font-bold text-gray-900">2.5 hrs</p>
+                        <p class="text-sm font-medium text-gray-600 mt-1">Avg. Time Saved</p>
+                    </div>
+                    
+                    <div class="text-center p-8 rounded-xl border border-gray-200 bg-white">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-50 text-primary mx-auto mb-3">
+                            <span class="material-symbols-outlined text-2xl">business_center</span>
+                        </div>
+                        <p class="text-4xl font-bold text-gray-900">312</p>
+                        <p class="text-sm font-medium text-gray-600 mt-1">Companies Analyzed</p>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="border-t border-gray-200 pt-12">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">AI Research Assistant</h2>
+                    <p class="text-gray-600 leading-relaxed max-w-3xl">
+                        Transforming company research into actionable intelligence with AI-powered multi-source aggregation and synthesis.
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function handleGenerate() {
+            const companyName = document.getElementById('companyInput').value.trim();
+
+            if (companyName) {
+                window.location.href = "/ui/research?company=" + encodeURIComponent(companyName);
+            } else {
+                const input = document.getElementById('companyInput');
+                input.focus();
+                input.classList.add('border-red-500');
+                setTimeout(() => input.classList.remove('border-red-500'), 1500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('companyInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') handleGenerate();
+            });
+        });
+    </script>
+</body>
+</html>

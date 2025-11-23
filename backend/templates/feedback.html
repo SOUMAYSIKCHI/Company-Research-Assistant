@@ -1,0 +1,482 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Feedback & Insights - {{ plan.company_name }} Report</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="relative flex min-h-screen w-full flex-col">
+        
+        <main class="flex-1 px-4 sm:px-10 py-6 custom-scrollbar overflow-y-auto">
+            <div class="max-w-[1400px] mx-auto">
+                
+                <div class="mb-6 fade-in">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                        Feedback & Insights – <span class="text-primary">{{ plan.company_name }}</span>
+                    </h1>
+                    <p class="text-sm text-gray-600">
+                        AI-generated comprehensive evaluation and strategic account plan
+                    </p>
+                    <div class="flex gap-3 mt-4">
+                        <a href="{{ url_for('download_report', conversation_id=conversation_id) }}"
+                           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-medium text-sm hover:bg-primary-dark transition-all">
+                            <span class="material-symbols-outlined text-lg">download</span>
+                            Download Report
+                        </a>
+                        <a href="{{ url_for('research_results', conversation_id=conversation_id) }}"
+                           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-700 bg-white hover:bg-gray-50 font-medium text-sm transition-all">
+                            <span class="material-symbols-outlined text-lg">arrow_back</span>
+                            Back to Research Workspace
+                        </a>
+                    </div>
+                </div>
+
+                <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 mb-6 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">summarize</span>
+                        Executive Summary
+                    </h2>
+                    <p class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">
+                        {{ plan.overview }}
+                    </p>
+                </section>
+
+                <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 mb-6 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">business</span>
+                        Company Overview & Financials
+                    </h2>
+                    <p class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed mb-6">
+                        {{ plan.company_profile }}
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Financials (YoY Growth & Revenue)</h3>
+                            <div class="bg-gray-50 rounded-xl p-4">
+                                <canvas id="financialChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">KPI Summary (Extracted Data)</h3>
+                            <div class="bg-gray-50 rounded-xl p-4">
+                                <canvas id="revenueChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    
+                    <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 fade-in">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-2xl">assessment</span>
+                            SWOT Analysis
+                        </h2>
+                        
+                        <div class="mb-4 h-64">
+                            <canvas id="swotRadarChart"></canvas>
+                        </div>
+
+                        <p class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed mt-4">
+                             {{ plan.swot }}
+                        </p>
+                    </section>
+
+                    <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 fade-in">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-2xl">groups</span>
+                            Competitors in Market
+                        </h2>
+                        <div class="bg-gray-50 rounded-xl p-4 flex items-center justify-center" style="height: 350px;">
+                            <canvas id="competitorChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed mt-4">
+                            {{ plan.competitors }}
+                        </p>
+                    </section>
+                </div>
+
+                <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 mb-6 fade-in" id="plan-table">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">table_chart</span>
+                        Generated Account Plan (30-60-90 Day)
+                    </h2>
+                    
+                    {% set plan_table_data = plan.sources.plan_table | default([]) %}
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm border-separate border-spacing-y-1">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-900">Period</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-900">Focus</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-900">Metric</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in plan_table_data %}
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-3 px-4 font-medium text-gray-900">{{ row.period }}</td>
+                                        <td class="py-3 px-4 text-gray-700">{{ row.focus }}</td>
+                                        <td class="py-3 px-4 text-gray-700">{{ row.metric }}</td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="3" class="py-3 px-4 text-center text-gray-500">No detailed 30-60-90 Day Plan data available.</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-2xl border-2 border-gray-200 p-6 mb-6 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
+                        Strategic Account Insights
+                    </h2>
+
+                    <div class="mb-6 pb-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="h-8 w-8 rounded-lg bg-blue-50 flex items-center justify-center text-primary font-bold text-sm">1</span>
+                            Client Profiling & Business Context
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            It consolidates core intelligence about a customer to ensure all internal teams are aligned on the customer narrative.
+                        </p>
+                        <div class="bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
+                            <div><strong class="text-gray-900">Organization Overview:</strong> <span class="text-gray-700">{{ plan.company_profile }}</span></div>
+                            <div><strong class="text-gray-900">Key Stakeholders:</strong> <span class="text-gray-700">Information on key executives is derived from research.</span></div>
+                            <div><strong class="text-gray-900">Strategic Priorities:</strong> <span class="text-gray-700">{{ plan.opportunities }}</span></div>
+                            <div><strong class="text-gray-900">Industry Trends:</strong> <span class="text-gray-700">{{ plan.market_analysis }}</span></div>
+                            <div><strong class="text-gray-900">Financial Posture:</strong> <span class="text-gray-700">{{ plan.financial_highlights }}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6 pb-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="h-8 w-8 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-bold text-sm">2</span>
+                            Revenue & Growth Opportunities
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            It surfaces potential levers for expansion to maintain a forward-leaning growth pipeline.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-sm text-gray-700 pl-4">
+                            {% for point in plan.opportunities.split('\n\n') %}
+                                <li class="pb-1">{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="mb-6 pb-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="h-8 w-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600 font-bold text-sm">3</span>
+                            Risk Assessment & Mitigation Planning
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            It flags blockers and operational frictions with proactive mitigation strategies.
+                        </p>
+                        <p class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">
+                            {{ plan.risks }}
+                        </p>
+                    </div>
+
+                    <div class="mb-6 pb-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="h-8 w-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 font-bold text-sm">4</span>
+                            Execution Roadmap
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            It translates strategy into actionable workstreams to keep the account on a predictable delivery trajectory.
+                        </p>
+                        <a href="#plan-table" class="text-sm text-primary hover:underline">View the full 30-60-90 Day Plan above.</a>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                            <span class="h-8 w-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 font-bold text-sm">5</span>
+                            Reporting & Governance
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            It standardizes reporting artifacts to ensure stakeholder visibility and governance alignment.
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-amber-600 text-lg">description</span>
+                                <div><strong class="text-gray-900">Leadership-ready Summaries:</strong> <span class="text-gray-700">Executive dashboards for C-suite</span></div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-amber-600 text-lg">analytics</span>
+                                <div><strong class="text-gray-900">Performance Dashboards:</strong> <span class="text-gray-700">Real-time monitoring of KPIs</span></div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-amber-600 text-lg">event</span>
+                                <div><strong class="text-gray-900">QBR Materials:</strong> <span class="text-gray-700">Pre-built templates for Quarterly Business Reviews</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+                    <a href="{{ url_for('research_results', conversation_id=conversation_id) }}" 
+                       class="text-sm text-gray-600 hover:text-primary transition-colors flex items-center gap-1">
+                        <span class="material-symbols-outlined text-lg">arrow_back</span>
+                        Back to Research Workspace
+                    </a>
+                    <a href="{{ url_for('home') }}" class="text-sm text-gray-600 hover:text-primary transition-colors flex items-center gap-1">
+                        <span class="material-symbols-outlined text-lg">home</span>
+                        Back to Home
+                    </a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- JINJA DATA TRANSFER WITH SAFE FALLBACKS ---
+
+        // KPI summary – can be list OR JSON string
+        let rawKpiData = {{ plan.kpi_summary | tojson | default("[]") | safe }};
+        if (typeof rawKpiData === 'string') {
+            try {
+                rawKpiData = JSON.parse(rawKpiData);
+            } catch (e) {
+                console.warn('Failed to parse KPI summary JSON string:', e);
+                rawKpiData = [];
+            }
+        }
+        if (!Array.isArray(rawKpiData)) {
+            rawKpiData = [];
+        }
+
+        // Competitor chart data
+        let competitorData = {{ plan.sources.competitor_chart_data | tojson | default("[]") | safe }};
+        if (typeof competitorData === 'string') {
+            try {
+                competitorData = JSON.parse(competitorData);
+            } catch (e) {
+                console.warn('Failed to parse competitor chart JSON string:', e);
+                competitorData = [];
+            }
+        }
+
+        // SWOT radar scores
+        let swotScores = {{ plan.sources.swot_radar_scores | tojson | default("{}") | safe }};
+        if (typeof swotScores === 'string') {
+            try {
+                swotScores = JSON.parse(swotScores);
+            } catch (e) {
+                console.warn('Failed to parse SWOT scores JSON string:', e);
+                swotScores = {};
+            }
+        }
+        
+        const CHART_COLORS = [
+            '#2563eb', // Primary Blue
+            '#a855f7', // Purple
+            '#10b981', // Emerald Green
+            '#f97316', // Orange
+            '#ef4444'  // Red
+        ];
+        
+        // --- CHART RENDERING FUNCTIONS ---
+        
+        function renderFinancialChart() {
+            if (!rawKpiData || !Array.isArray(rawKpiData) || rawKpiData.length === 0) {
+                console.warn('No KPI data available for Financial chart.');
+                return;
+            }
+
+            const kpis = [
+                { name: "Revenue (B USD)", key: "Revenue", value: 0, color: CHART_COLORS[0] },
+                { name: "YoY Growth %", key: "Growth", value: 0, color: CHART_COLORS[1] },
+                { name: "Employees (K)", key: "Employees", value: 0, color: CHART_COLORS[2] }
+            ];
+
+            rawKpiData.forEach(item => {
+                const kpi = kpis.find(k => item.name && item.name.includes(k.key));
+                if (kpi && item.value !== null && item.value !== undefined) {
+                    kpi.value = parseFloat(
+                        item.value.toString().replace(/[^0-9.-]/g, '')
+                    ) || 0;
+                }
+            });
+            
+            const labels = kpis.map(k => k.name);
+            const data = kpis.map(k => k.value);
+
+            const ctx = document.getElementById('financialChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar', 
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'KPI Value',
+                        data: data,
+                        backgroundColor: kpis.map(k => k.color),
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Financial Metrics' }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+        
+        function renderRevenueOverTimeChart() {
+            // Hardcoded example data for KPI Summary container (can be replaced by real series later)
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023'],
+                    datasets: [{
+                        label: 'Revenue ($B)',
+                        data: [24.6, 31.5, 53.8, 81.5, 96.8], // Example data
+                        borderColor: CHART_COLORS[0],
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        borderWidth: 3,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Revenue Over Time (Example Data)' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { callback: value => '$' + value + 'B' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderSwotRadarChart() {
+            if (!swotScores || Object.keys(swotScores).length === 0) return;
+
+            const labels = Object.keys(swotScores); 
+            const data = Object.values(swotScores);
+            
+            const ctx = document.getElementById('swotRadarChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Score (1-10)',
+                        data: data,
+                        backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                        borderColor: CHART_COLORS[2], 
+                        pointBackgroundColor: CHART_COLORS[2],
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: CHART_COLORS[2]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        r: {
+                            angleLines: { display: true },
+                            suggestedMin: 0,
+                            suggestedMax: 10,
+                            ticks: { stepSize: 2 }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderCompetitorPieChart() {
+            if (!competitorData || !Array.isArray(competitorData) || competitorData.length === 0) return;
+
+            const labels = competitorData.map(item => item.name + ' (' + item.share_percent + '%)');
+            const data = competitorData.map(item => item.share_percent);
+            
+            const ctx = document.getElementById('competitorChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: CHART_COLORS,
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Market Share Breakdown' }
+                    }
+                }
+            });
+        }
+
+        // --- MAIN DOM INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', function() {
+            if (rawKpiData && rawKpiData.length > 0) {
+                renderFinancialChart();
+            } else {
+                console.warn('Skipping financial chart – no KPI data.');
+            }
+
+            // This is the key fix for your empty KPI Summary box
+            renderRevenueOverTimeChart();
+
+            if (swotScores && Object.keys(swotScores).length > 0) {
+                renderSwotRadarChart();
+            }
+            if (competitorData && competitorData.length > 0) {
+                renderCompetitorPieChart();
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+{% endblock %}
