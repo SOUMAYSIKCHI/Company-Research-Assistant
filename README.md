@@ -151,6 +151,8 @@ Frontend routes include:
 * **LangChain** (HuggingFace Embeddings + Chroma vector DB) 
 * **MCP (Model Context Protocol)** custom tools for research, chat, and feedback
 * **Serper API Web Search**
+* **RAG**
+* **Web Scraping**
 
 ### **Frontend** :
 
