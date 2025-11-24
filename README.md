@@ -32,7 +32,14 @@ https://drive.google.com/file/d/17LZm0odnt4ouAGqWfoYKSM-Mi5wVHO9V/view?usp=shari
 
 https://drive.google.com/file/d/12YYwqG1PMnbMLTkldrKt9nryThJqRIP0/view?usp=sharing
 
+# 🎥 Demo Video :
+A short end-to-end demonstration of the **Company (AI) Research Assistant**, showcasing the agentic research workflow, multi-source synthesis, UI interactions, and feedback generation.
+
+🔗 **Demo Link:** https://drive.google.com/file/d/1oyP1g1vnA4c0HTMmuPLku1XPm9rUd5bS/view?usp=drivesdk 
+
 ---
+
+
 
 ## 🧠 **Core Capabilities** :
 
@@ -314,13 +321,6 @@ backend/
 * Handles confused users
 * Error-tolerant JSON parsing
 * Fallback modes for empty RAG/Web results
-
----
-
-# 🎥 Demo Video :
-A short end-to-end demonstration of the **Company (AI) Research Assistant**, showcasing the agentic research workflow, multi-source synthesis, UI interactions, and feedback generation.
-
-🔗 **Demo Link:** _Coming Soon 
 
 ---
 
